@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/27 17:13:59 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/27 20:04:47 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int		main(int ac, char **av)
 {
+	int		fd;
+
 	if (ac == 1)
 		ft_putstr("Please include a .fdf file\n");
 	if (ac == 2)
 	{
-		if (parse_fdf(av[1]) == 1)
+	//	fd = open(av[1], O_RDONLY);
+		if (parse_fdf(av[1], &av) == 1)
 		{
 			ft_putstr(".fdf filename pass!\n");
 	/*		if (create_grid(av[1]) == 0)
@@ -32,5 +35,6 @@ int		main(int ac, char **av)
 		else
 			ft_putstr(".fdf file invalid\n");
 	}
+	close(fd);
 	return (0);
 }
