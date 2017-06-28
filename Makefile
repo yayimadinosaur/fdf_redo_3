@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/05/29 18:28:39 by wfung            ###   ########.fr        #
+#    Updated: 2017/06/27 17:09:29 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,8 @@ CC		=	gcc
 
 FLAG	=	-Wall -Wextra -Werror
 
-SRCS	= 	ft_make_intarray.c\
-			make_grid.c\
-			main.c
+SRCS	=	main.c\
+			parse_fdf.c\
 
 OBJ =		${SRCS:.c=.o}
 
