@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/29 13:50:05 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/29 13:57:32 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ static int		parse_file(char **av)
 	}
 }
 
-static int		parse_fn(char *str)
+static int		parse_filename(char *str)
 {
 	size_t	i;
 
 	i = ft_strlen(str) - 1;
-	if (i < 3)
+	if (i < 4)
 		return (0);
 	if (str[i] != 'f' && str[i - 1] != 'd' && str[i - 2] != 'f'
 			&& str[i - 3] != '.')
@@ -81,7 +81,7 @@ int		parse_fdf(char *str, char **av)
 	int		fd;
 
 	fd = open(av[1], O_RDONLY);
-	if (parse_fn(str) != 1)
+	if (parse_filename(str) != 1)
 	{
 		ft_putstr(".fdf filename invalid\n");
 		return (0);
