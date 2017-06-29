@@ -6,15 +6,26 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/27 20:05:06 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/28 18:02:22 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		count_chr(char *str)
+static int		count_chr(char *str, int n, char stop)
 {
+	int		count;
+	int		i;
 
+	i = 0;
+	count = 0;
+	while (str[i] != stop)
+	{
+		if (str[i] == (char)n && str[i + 1] != (char)n)
+			count++;
+		i++;
+	}
+	return (count);
 }
 
 static int		parse_file(char **av)
@@ -26,7 +37,7 @@ static int		parse_file(char **av)
 
 	row = 0;
 	col = 0;
-	fd = 0;
+	fd = open(av[1], O_RDONLY);
 	while (get_next_line(fd, &buff) == 1)
 	{
 
