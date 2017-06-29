@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/28 18:01:26 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/29 14:12:34 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ typedef	struct			s_fdfstore
 	int					shift_x;
 	int					shift_y;
 	int					shift_z;
-}
+}						t_fdfstore;
 
 typedef struct			s_pts
 {
 	int					x;
 	int					y;
 	int					z;
-}
+}						t_pts;
 
-int		parse_fdf(char *str);
+int		parse_fdf(char *str, char **av);
 
 #endif
