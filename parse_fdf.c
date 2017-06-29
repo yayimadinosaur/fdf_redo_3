@@ -6,13 +6,31 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/28 18:02:22 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/29 13:50:05 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		count_chr(char *str, int n, char stop)
+static int		count_num_str(char *str, int n, char stop)
+{
+	int		count;
+	int		i;
+
+	count = 0;
+	i = 0;
+	while (str[i] != stop)
+	{
+		if (str[i] >= 0 && str[i] <= 9 &&
+				(str[i + 1] == n || str[i + 1] == stop))
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+/*	not sure if needed if count_num_str is used instead
+static int		count_chr_str(char *str, int n, char stop)
 {
 	int		count;
 	int		i;
@@ -27,6 +45,7 @@ static int		count_chr(char *str, int n, char stop)
 	}
 	return (count);
 }
+*/
 
 static int		parse_file(char **av)
 {
