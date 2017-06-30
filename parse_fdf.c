@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/29 14:34:06 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/30 14:25:09 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ static int		parse_file(char **av)
 		col++;
 		printf("\n");
 	}
+	if (row < 2 || col < 2)
+	{
+		ft_putstr("Invalid file contents\n");
+		return (-1);
+	}
 	printf("row = %i\n", row);
 	printf("col = %i\n", col);
 	close(fd);
@@ -115,5 +120,6 @@ int		parse_fdf(char *str, char **av)
 		ft_putstr(".fdf file contents invalid\n");
 		return (0);
 	}
+	printf("pass both\n");
 	return (1);
 }
