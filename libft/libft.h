@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 10:11:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/03 12:41:44 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/30 14:28:35 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct		s_list
 {

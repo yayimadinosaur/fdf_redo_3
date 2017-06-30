@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 10:11:15 by wfung             #+#    #+#              #
-#    Updated: 2017/04/19 17:39:46 by wfung            ###   ########.fr        #
+#    Updated: 2017/06/30 14:29:05 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,7 @@ OBJS = ./ft_memset.o ./ft_bzero.o ./ft_memcpy.o ./ft_memccpy.o ./ft_memmove.o\
 	   ./ft_strcmp_len.o ./ft_lst_count.o ft_strtrim_nows.o\
 	   ./get_next_line.o
 
-INCL = ./libft.h\
-	   ./get_next_line.h
+INCL = ./libft.h
 
 all: $(NAME)
 
