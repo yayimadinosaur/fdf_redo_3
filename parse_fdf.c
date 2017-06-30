@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/30 14:25:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/30 14:34:18 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static int		count_num_str(char *str, int n, char stop)
 				(str[i + 1] == ' ' || str[i + 1] == n
 				 || str[i + 1] == stop))
 		{
-			printf("str[i] count = %c %i\n", str[i], i);
+//			printf("str[i] count = %c %i\n", str[i], i);
 			count++;
 		}
-		printf("[%c]", str[i]);
+//		printf("[%c]", str[i]);
 		i++;
 	}
-	printf("count == %i\n", count);
+//	printf("count == %i\n", count);
 	return (count);
 }
 
@@ -84,7 +84,7 @@ static int		parse_file(char **av)
 	if (row < 2 || col < 2)
 	{
 		ft_putstr("Invalid file contents\n");
-		return (-1);
+		return (0);
 	}
 	printf("row = %i\n", row);
 	printf("col = %i\n", col);
@@ -120,6 +120,6 @@ int		parse_fdf(char *str, char **av)
 		ft_putstr(".fdf file contents invalid\n");
 		return (0);
 	}
-	printf("pass both\n");
+//	printf("pass both\n");
 	return (1);
 }
