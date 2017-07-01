@@ -6,11 +6,18 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/30 14:34:18 by wfung            ###   ########.fr       */
+/*   Updated: 2017/06/30 18:47:32 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static int		parse_contents(char *str)
+{
+	//checks to see if all the characters inside .fdf are valid
+	//	i.e. 0 - 9, '-', 0x for hex, and spaces
+	//		spacing depends on the numbers?
+}
 
 static int		count_num_str(char *str, int n, char stop)
 {
@@ -79,7 +86,7 @@ static int		parse_file(char **av)
 		}
 		free(buff);
 		col++;
-		printf("\n");
+	//	printf("\n");
 	}
 	if (row < 2 || col < 2)
 	{
@@ -109,7 +116,7 @@ int		parse_fdf(char *str, char **av)
 {
 	int		fd;
 
-	fd = open(av[1], O_RDONLY);
+	char	*line;
 	if (parse_filename(str) != 1)
 	{
 		ft_putstr(".fdf filename invalid\n");
@@ -120,6 +127,17 @@ int		parse_fdf(char *str, char **av)
 		ft_putstr(".fdf file contents invalid\n");
 		return (0);
 	}
+	fd = open(av[1], O_RDONLY);
+	while (get_next_line(fd, &line) == 1)
+	{
+		if (parse_contents(line) == 0)
+		{
+			free(line);
+			return (0);
+		}
+		free(line);
+	}
+	close(fd);
 //	printf("pass both\n");
 	return (1);
 }
