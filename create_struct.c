@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/01 17:16:42 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/01 19:13:44 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/01 19:46:06 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,34 @@ t_fdfstore	*create_struct(char **av)
 	int			i;
 	int			j;
 	int			fd;
-	char		**line;
+	char		*line;
 	t_fdfstore	*store;
 
 	i = 0;
-	j = 0;
 	line = NULL;
 	if (!(store = (t_fdfstore*)malloc(sizeof(t_fdfstore))))
 		return (NULL);	//exit();	//learn how to use exit
+	if (!(store->array_int = (int**)malloc(sizeof(int*) * (store->row))))
+		return (NULL);	//exit();		//is this correct?
 	fd = open(av[1], O_RDONLY);
-	while (get_next_line(fd, line) == 1)
+	printf("start GNL create_struct\n");
+	while (get_next_line(fd, &line) == 1)
 	{
-		if (!(store->array_int = (int**)malloc(sizeof(int*) * (count_row(line)))))
-			return (NULL);	//exit();		//is this correct?
-		while (i < count_row(line))
+		j = 0;
+		printf("inside GNL %i\n", j);
+		if (!(store->array_int[i] = (int*)malloc(sizeof(int) * (1))))
+			return (NULL);
+		while (j < store->col)
 		{
-			if (!(store->array_int[i] = (int*)malloc(sizeof(int) * (1))))
-				return (NULL);
-			store->array_int[i][j] = ft_atoi(*line);		//not sure if can use atoi this way
+			store->array_int[i][j] = ft_atoi(line);		//not sure if can use atoi this way
 			printf("array_int[%i] [%i]\n", i, store->array_int[i][j]);
-			i++;
+			j++;
 		}
+		i++;
 		free(line);
 	}
 	close(fd);
+	printf("end GNL create_struct\n");
 	return (store);
 }
 
