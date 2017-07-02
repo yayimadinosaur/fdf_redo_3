@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/30 18:47:32 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/01 17:11:36 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ static int		parse_contents(char *str)
 	//checks to see if all the characters inside .fdf are valid
 	//	i.e. 0 - 9, '-', 0x for hex, and spaces
 	//		spacing depends on the numbers?
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= '0' && str[i] <= '9') || (str[i] == '-'
+					&& str[i + 1] >= '0' && str[i + 1] <= '9')
+				|| str[i] == ' ')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }
 
 static int		count_num_str(char *str, int n, char stop)
@@ -116,6 +129,7 @@ int		parse_fdf(char *str, char **av)
 {
 	int		fd;
 
+	int		i = 0;
 	char	*line;
 	if (parse_filename(str) != 1)
 	{
@@ -133,8 +147,11 @@ int		parse_fdf(char *str, char **av)
 		if (parse_contents(line) == 0)
 		{
 			free(line);
+			printf("row %i parse FAIL!!!\n", i);
 			return (0);
 		}
+		printf("row %i parse pass!\n", i);
+		i++;
 		free(line);
 	}
 	close(fd);
