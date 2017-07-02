@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/30 14:22:44 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/01 17:43:00 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(int ac, char **av)
 {
+	t_fdfstore	*store;
 	if (ac == 1)
 		ft_putstr("Please include a .fdf file\n");
 	if (ac == 2)
@@ -29,7 +30,8 @@ int		main(int ac, char **av)
 					//free stored_pts
 				else
 					draw_fdf();	//initialize mlx + loop
-	*/	}
+	*/	store = create_struct(av[1], av);
+		}
 		else
 			ft_putstr(".fdf file invalid\n");
 	}

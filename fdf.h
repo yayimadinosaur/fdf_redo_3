@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/06/29 14:12:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/01 17:34:29 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 
 typedef	struct			s_fdfstore
 {
-	char				*store;
-	char				**store_strsplit;
-	int					**pts;
+	char				*store;	//notsure what this is 4
+	char				**store_strsplit;	//needed?
+	int					**array_int;	//pts
 	int					rot_x;
 	int					rot_y;
 	int					rot_z;
@@ -42,6 +42,7 @@ typedef struct			s_pts
 	int					z;
 }						t_pts;
 
-int		parse_fdf(char *str, char **av);
+int			parse_fdf(char *str, char **av);
+t_fdfstore	*create_struct(char *str, char **av);
 
 #endif
