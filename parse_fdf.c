@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/01 17:11:36 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/01 17:14:00 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ int		parse_fdf(char *str, char **av)
 		{
 			free(line);
 			printf("row %i parse FAIL!!!\n", i);
+			close(fd);
 			return (0);
 		}
 		printf("row %i parse pass!\n", i);
