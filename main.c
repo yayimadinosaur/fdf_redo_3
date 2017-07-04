@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/03 19:58:35 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/04 16:09:16 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,8 @@ int		main(int ac, char **av)
 		if (parse_fdf(av[1], av) == 1)
 		{
 			ft_putstr(".fdf parsing filename + file contents  pass!\n");
-	/*		if (create_grid(av[1]) == 0)
-				//free(grid?
-			else
-				if (store_pts(av[1]) == 0)
-					//free stored_pts
-				else
-					draw_fdf();	//initialize mlx + loop
-	*/		if (!(store = create_struct(av)))//not sure if [if] is needed
-				return (0);
+			if (!(store = create_struct(av)))//not sure if [if] is needed
+				return (0);				//should display malloc fail msg?
 			print_array_int(store->array_int, store);
 		}
 		else
@@ -41,3 +34,14 @@ int		main(int ac, char **av)
 	}
 	return (0);
 }
+
+	/*	fdf flow?
+	 *
+	 * if (create_grid(av[1]) == 0)
+				//free(grid?
+			else
+				if (store_pts(av[1]) == 0)
+					//free stored_pts
+				else
+					draw_fdf();	//initialize mlx + loop
+	*/
