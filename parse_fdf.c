@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/01 19:12:17 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/03 19:52:16 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static int		parse_file(char **av)
 	int			col;
 	int			fd;
 	char		*buff;
-	t_fdfstore	*store;
 
 	row = 0;
 	col = 0;
@@ -100,19 +99,12 @@ static int		parse_file(char **av)
 		}
 		free(buff);
 		col++;
-	//	printf("\n");
 	}
 	if (row < 2 || col < 2)
 	{
 		ft_putstr("Invalid file contents\n");
 		return (0);
 	}
-	else
-		if (!(store = (t_fdfstore*)malloc(sizeof(t_fdfstore))))
-			return (0);
-	store->row = row;
-	store->col = col;
-	printf("store row = %i col = %i\n", store->row, store->col);
 	printf("row = %i\n", row);
 	printf("col = %i\n", col);
 	close(fd);
@@ -135,9 +127,9 @@ static int		parse_filename(char *str)
 int		parse_fdf(char *str, char **av)
 {
 	int		fd;
-
-	int		i = 0;
+	int		i = 0;	//
 	char	*line;
+	
 	if (parse_filename(str) != 1)
 	{
 		ft_putstr(".fdf filename invalid\n");
@@ -154,15 +146,14 @@ int		parse_fdf(char *str, char **av)
 		if (parse_contents(line) == 0)
 		{
 			free(line);
-			printf("row %i parse FAIL!!!\n", i);
+			printf("row %i parse FAIL!!!\n", i);//
 			close(fd);
 			return (0);
 		}
-		printf("row %i parse pass!\n", i);
-		i++;
+		printf("row %i parse pass!\n", i);//
+		i++;//
 		free(line);
 	}
 	close(fd);
-//	printf("pass both\n");
 	return (1);
 }
