@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 13:05:04 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 13:06:50 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 13:17:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_fdfstore	*create_struct1(void)
 
 	if (!(store = (t_fdfstore*)malloc(sizeof(t_fdfstore))))
 		return (NULL);
+	store->col = 0;
+	store->row = 0;
 	return (store);
 }
 

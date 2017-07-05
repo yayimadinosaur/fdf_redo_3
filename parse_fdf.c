@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 12:45:29 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 13:17:04 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,23 +88,23 @@ static int		count_chr_str(char *str, int n, char stop)
 }
 */
 
-static int		parse_file(char **av)
+static int		parse_file(char **av, t_fdfstore *store)
 {
-	int			row;
-	int			col;
+//	int			row;
+//	int			col;
 	int			fd;
 	char		*buff;
 
-	row = 0;
-	col = 0;
+//	row = 0;
+//	col = 0;
 	fd = open(av[1], O_RDONLY);
 	while (get_next_line(fd, &buff) == 1)
 	{
-		if (col == 0)
-			col = count_num_str(buff, '\n', '\0');
+		if (store->col == 0)
+			store->col = count_num_str(buff, '\n', '\0');
 		else
 		{
-			if (col != count_num_str(buff, '\n', '\0'))
+			if (store->col != count_num_str(buff, '\n', '\0'))
 			{
 				close(fd);
 				free(buff);
@@ -115,13 +115,13 @@ static int		parse_file(char **av)
 		free(buff);
 		row++;
 	}
-	if (row < 2 || col < 2)
+	if (store->row < 2 || store->col < 2)
 	{
 		ft_putstr("Invalid file contents\n");
 		return (0);
 	}
-	printf("parse row = %i\n", row);	//
-	printf("parse col = %i\n", col);	//
+	printf("parse row = %i\n", store->row);	//
+	printf("parse col = %i\n", store->col);	//
 	close(fd);
 	return (1);
 }
@@ -139,7 +139,7 @@ static int		parse_filename(char *str)
 	return (1);
 }
 
-int		parse_fdf(char *str, char **av)
+int		parse_fdf(char *str, char **av, t_fdfstore *store)
 {
 	if (parse_filename(str) != 1)
 	{
@@ -151,7 +151,7 @@ int		parse_fdf(char *str, char **av)
 		ft_putstr(".fdf contents invalid\n");
 		return (0);
 	}
-	if (parse_file(av) != 1)
+	if (parse_file(av, store) != 1)
 	{
 		ft_putstr(".fdf file contents invalid\n");
 		return (0);
