@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 13:17:04 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 15:10:49 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ static int		parse_file(char **av, t_fdfstore *store)
 			}
 		}
 		free(buff);
-		row++;
+		store->row = store->row + 1;
 	}
 	if (store->row < 2 || store->col < 2)
 	{

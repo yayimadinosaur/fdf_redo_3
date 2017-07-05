@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/04 16:09:16 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 15:09:56 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@ int		main(int ac, char **av)
 		ft_putstr("Please include a .fdf file\n");
 	if (ac == 2)
 	{
+		if (!(store = create_struct1()))//not sure if [if] is needed
+			return (0);				//should display malloc fail msg?
 	//	fd = open(av[1], O_RDONLY);
-		if (parse_fdf(av[1], av) == 1)
+		if (parse_fdf(av[1], av, store) == 1)
 		{
 			ft_putstr(".fdf parsing filename + file contents  pass!\n");
-			if (!(store = create_struct(av)))//not sure if [if] is needed
-				return (0);				//should display malloc fail msg?
-			print_array_int(store->array_int, store);
+		//	print_array_int(store->array_int, store);
 		}
 		else
+		{
+			free(store);
 			ft_putstr(".fdf file invalid\n");
+		}
 	}
 	return (0);
 }

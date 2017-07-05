@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/07/03 19:23:30 by wfung            ###   ########.fr        #
+#    Updated: 2017/07/05 15:11:13 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAG	=	-Wall -Wextra -Werror
 
 SRCS	=	main.c\
 			parse_fdf.c\
-			create_struct.c\
+			create_struct1.c\
 			test_functions.c\
 
 OBJ =		${SRCS:.c=.o}
