@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/04 16:07:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/04 18:24:31 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ static int		parse_file(char **av)
 	fd = open(av[1], O_RDONLY);
 	while (get_next_line(fd, &buff) == 1)
 	{
-		if (row == 0)
-			row = count_num_str(buff, '\n', '\0');
+		if (col == 0)
+			col = count_num_str(buff, '\n', '\0');
 		else
 		{
-			if (row != count_num_str(buff, '\n', '\0'))
+			if (col != count_num_str(buff, '\n', '\0'))
 			{
 				close(fd);
 				free(buff);
@@ -98,7 +98,7 @@ static int		parse_file(char **av)
 			}
 		}
 		free(buff);
-		col++;
+		row++;
 	}
 	if (row < 2 || col < 2)
 	{
@@ -127,7 +127,6 @@ static int		parse_filename(char *str)
 int		parse_fdf(char *str, char **av)
 {
 	int		fd;
-	int		i = 0;	//
 	char	*line;
 	
 	if (parse_filename(str) != 1)
@@ -141,12 +140,9 @@ int		parse_fdf(char *str, char **av)
 		if (parse_contents(line) == 0)
 		{
 			free(line);
-			printf("row %i parse FAIL!!!\n", i);//
 			close(fd);
 			return (0);
 		}
-		printf("row %i parse pass!\n", i);//
-		i++;//
 		free(line);
 	}
 	close(fd);

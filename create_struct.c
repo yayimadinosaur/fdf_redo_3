@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/01 17:16:42 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/03 20:03:38 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/04 18:24:49 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,26 @@ t_fdfstore	*create_struct(char **av)
 	return (store);
 }
 
+/*
+t_fdfstore	*create_struct1(char **av)
+{
+	int			fd;
+	char		*line;
+	t_fdfstore	*store;
+
+	fd = open(av[1], O_RDONLY);
+	if (!(store = (t_fdfstore*)malloc(sizeof(t_fdfstore))))
+		return (NULL);
+	if (!(store->store_split = (char**)malloc(sizeof(char*) * (row))))	//where row from
+		return (NULL);
+	while (get_next_line(fd, &line) == 1)
+	{
+		if (!(store->store_split[i] = ft_strdup(line)))
+			return (NULL);
+		i++;
+		free(line);
+	}
+	return (store);
+}
+*/
 //need to close(fd) if mallocs fail, and need to remove malloced stuff
