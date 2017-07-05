@@ -6,32 +6,46 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/04 18:24:31 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 12:45:29 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		parse_contents(char *str)
+//checks to see if all the characters inside .fdf are valid
+//	i.e. 0 - 9, '-', 0x for hex, and spaces
+//		spacing depends on the numbers?
+
+static int		parse_contents(char **av)
 {
-	//checks to see if all the characters inside .fdf are valid
-	//	i.e. 0 - 9, '-', 0x for hex, and spaces
-	//		spacing depends on the numbers?
 	int		i;
+	int		fd;
+	char	*line;
 
 	i = 0;
-	while (str[i] != '\0')
+	fd = open(av[1], O_RDONLY);
+	while (get_next_line(fd, &line) == 1)
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || (str[i] == '-'
-					&& str[i + 1] >= '0' && str[i + 1] <= '9')
-				|| str[i] == ' ')
-			i++;
-		else
-			return (0);
+		while (line[i] != '\0')
+		{
+			if ((line[i] >= '0' && line[i] <= '9') || (line[i] == '-'
+					&& line[i + 1] >= '0' && line[i + 1] <= '9')
+				|| line[i] == ' ')
+				i++;
+			else
+			{
+				free(line);
+				close(fd);
+				return (0);
+			}
+		}
+		free(line);
 	}
+	close(fd);
 	return (1);
 }
 
+//maybe add to libft?
 static int		count_num_str(char *str, int n, char stop)
 {
 	int		count;
@@ -56,6 +70,7 @@ static int		count_num_str(char *str, int n, char stop)
 }
 
 /*	not sure if needed if count_num_str is used instead
+ *	maybe add to libft?
 static int		count_chr_str(char *str, int n, char stop)
 {
 	int		count;
@@ -126,26 +141,16 @@ static int		parse_filename(char *str)
 
 int		parse_fdf(char *str, char **av)
 {
-	int		fd;
-	char	*line;
-	
 	if (parse_filename(str) != 1)
 	{
 		ft_putstr(".fdf filename invalid\n");
 		return (0);
 	}
-	fd = open(av[1], O_RDONLY);
-	while (get_next_line(fd, &line) == 1)
+	if (parse_contents(av) == 0)
 	{
-		if (parse_contents(line) == 0)
-		{
-			free(line);
-			close(fd);
-			return (0);
-		}
-		free(line);
+		ft_putstr(".fdf contents invalid\n");
+		return (0);
 	}
-	close(fd);
 	if (parse_file(av) != 1)
 	{
 		ft_putstr(".fdf file contents invalid\n");
