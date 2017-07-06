@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 15:13:44 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 20:21:15 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 20:25:45 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,10 @@ int		save_values(char **av, t_fdfstore *store)
 	close(fd);
 	return (1);
 }
+
+//need to add [i][j] for int array storing
+//	broken.
+//	i--;
+//	j--
+//	i = -1;
+//	j = -1;
