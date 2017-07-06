@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 15:09:56 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/05 20:17:20 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int		main(int ac, char **av)
 	{
 		if (!(store = create_struct1()))//not sure if [if] is needed
 			return (0);				//should display malloc fail msg?
-	//	fd = open(av[1], O_RDONLY);
 		if (parse_fdf(av[1], av, store) == 1)
 		{
 			ft_putstr(".fdf parsing filename + file contents  pass!\n");
-		//	print_array_int(store->array_int, store);
+			if (save_values(av, store) != 1)
+				ft_putstr("save_values malloc failed\n");
+			print_array_int(store->array_int, store);
 		}
 		else
 		{
