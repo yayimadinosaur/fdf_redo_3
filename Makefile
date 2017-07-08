@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/07/05 20:17:38 by wfung            ###   ########.fr        #
+#    Updated: 2017/07/07 19:48:27 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	=	main.c\
 			create_struct1.c\
 			test_functions.c\
 			save_values.c\
+			set_window.c\
 
 OBJ =		${SRCS:.c=.o}
 

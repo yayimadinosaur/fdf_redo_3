@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/07 19:11:48 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/07 19:55:54 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		main(int ac, char **av)
 {
 	t_fdfstore	*store;
+	t_env		*e;
 
 	store = NULL;
 	if (ac == 1)
@@ -29,6 +30,12 @@ int		main(int ac, char **av)
 			if (save_values(av, store) != 1)
 				ft_putstr("save_values malloc failed\n");
 			print_array_int(store->array_int, store);	//testing array_int
+			if (!(e = set_window(600, store)))
+				return (-1);	//notsure if proper return 
+			e->mlx = mlx_init();
+			e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
+			mlx_loop(e->mlx);
+			printf("mlx looping\n");
 		}
 		else
 		{
