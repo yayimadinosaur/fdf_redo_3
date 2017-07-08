@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 20:17:20 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/07 19:11:48 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int ac, char **av)
 			ft_putstr(".fdf parsing filename + file contents  pass!\n");
 			if (save_values(av, store) != 1)
 				ft_putstr("save_values malloc failed\n");
-			print_array_int(store->array_int, store);
+			print_array_int(store->array_int, store);	//testing array_int
 		}
 		else
 		{

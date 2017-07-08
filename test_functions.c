@@ -6,15 +6,15 @@ void	print_array_int(int **array_int, t_fdfstore *store)
 
 	i = 0;
 	printf("start print int_array\n");
-	while (i < store->col)
+	while (i < store->row)
 	{
 		j = 0;
-		while (j < store->row)
+		while (j < store->col)
 		{
 			printf("%i ", array_int[i][j]);
 			j++;
 		}
-		printf("\n");
+		printf("\nrow %i\n", i);
 		i++;
 	}
 	printf("end print int_array\n");

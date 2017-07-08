@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 20:17:01 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/07 17:26:20 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct			s_pts
 int			parse_fdf(char *str, char **av, t_fdfstore *store);
 
 t_fdfstore	*create_struct1(void);
-t_fdfstore	*create_struct(char **av);
+t_fdfstore	*create_struct(char **av);	//old
 int			save_values(char **av, t_fdfstore *store);
 void		array_int(char **result_str, int n, int *array);
 
