@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 11:25:28 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/08 18:09:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/09 12:43:33 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)
 			{
 				sum_x = e->start_x + (e->h_gap * i);
 				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_x + gap >= e->end_x)
+				if (sum_x >= e->end_x)
 					break;
 				mlx_pixel_put(mlx, win, sum_x + gap, sum_y, 0xff00);	//green
 				printf("gap[%i]sum_x[%i]", gap, sum_x);
@@ -69,15 +69,16 @@ static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 			{
 				sum_x = e->start_x + (e->h_gap * i);
 				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_y + gap >= e->end_y)
+				if (sum_y >= e->end_y)
 					break;
 				mlx_pixel_put(mlx, win, sum_x, sum_y + gap, 0xff0000);	//red
 			//	printf("gap[%i]sum_x[%i]", gap, sum_x);
 				gap--;
 			}
+		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
 			j++;
 		}
-		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
+	//	printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
 		i++;
 	}
 }
