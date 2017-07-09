@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 11:25:28 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/09 12:43:33 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/09 14:43:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)
 			{
 				sum_x = e->start_x + (e->h_gap * i);
 				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_x >= e->end_x)
+				if (sum_x >= e->end_x - 1)
 					break;
 				mlx_pixel_put(mlx, win, sum_x + gap, sum_y, 0xff00);	//green
 				printf("gap[%i]sum_x[%i]", gap, sum_x);
@@ -69,7 +69,7 @@ static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 			{
 				sum_x = e->start_x + (e->h_gap * i);
 				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_y >= e->end_y)
+				if (sum_y >= e->end_y - 1)
 					break;
 				mlx_pixel_put(mlx, win, sum_x, sum_y + gap, 0xff0000);	//red
 			//	printf("gap[%i]sum_x[%i]", gap, sum_x);
@@ -85,6 +85,6 @@ static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 
 void		draw(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {
-	draw_right(mlx, win, e, store);
-	draw_down(mlx, win, e, store);
+	draw_right(mlx, win, e, store);	//doesnt draw a straight line
+	draw_down(mlx, win, e, store);	//over draws
 }
