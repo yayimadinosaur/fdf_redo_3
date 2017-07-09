@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/07/07 19:48:27 by wfung            ###   ########.fr        #
+#    Updated: 2017/07/08 17:29:49 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	=	main.c\
 			test_functions.c\
 			save_values.c\
 			set_window.c\
+			draw.c\
 
 OBJ =		${SRCS:.c=.o}
 

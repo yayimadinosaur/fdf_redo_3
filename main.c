@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/07 19:55:54 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/08 17:42:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int		main(int ac, char **av)
 				return (-1);	//notsure if proper return 
 			e->mlx = mlx_init();
 			e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
-			mlx_loop(e->mlx);
+			printf("win_x %i win_y %i cent_x %i cent_y %i start_x %i start_y %i end_x %i end_y %i h_gap %i w_gap %i\n", e->win_x, e->win_y, e->center_x, e->center_y, e->start_x, e->start_y, e->end_x, e->end_y, e->h_gap, e->w_gap);
 			printf("mlx looping\n");
+			draw(e->mlx, e->win, e, store);
+			mlx_loop(e->mlx);
 		}
 		else
 		{

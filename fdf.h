@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/07 19:54:12 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/08 17:33:24 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct			s_env
 	int					center_y;
 	int					start_x;
 	int					start_y;
-	int					draw_x_max;
-	int					draw_y_max;
+	int					end_x;
+	int					end_y;
 	int					h_gap;
 	int					w_gap;
 }						t_env;
@@ -71,6 +71,8 @@ int			save_values(char **av, t_fdfstore *store);
 void		array_int(char **result_str, int n, int *array);
 
 t_env		*set_window(int n, t_fdfstore *store);
+
+void		draw(void *mlx, void *win, t_env *e, t_fdfstore *store);
 //ttest functions
 void		print_array_int(int **array_int, t_fdfstore *store);
 
