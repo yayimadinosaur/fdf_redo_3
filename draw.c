@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 11:25:28 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/09 18:50:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/09 19:46:26 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)
 				if (sum_x + gap >= e->end_x - 1)
 					break;
 				mlx_pixel_put(mlx, win, sum_x + gap, sum_y, 0xff00);	//green
-				printf("gap[%i]sum_x[%i]", gap, sum_x);
+			//	printf("gap[%i]sum_x[%i]", gap, sum_x);
 				gap--;
 			}
 			j++;
@@ -46,6 +46,7 @@ static void	draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		i++;
 	}
 }
+
 
 static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {
@@ -78,7 +79,7 @@ static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
 			j++;
 		}
-	//	printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
+		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
 		i++;
 	}
 }

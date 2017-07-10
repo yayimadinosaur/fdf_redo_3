@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/08 17:33:24 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/09 19:34:52 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include <stdio.h>	//
 

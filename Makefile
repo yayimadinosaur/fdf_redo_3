@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/07/08 17:29:49 by wfung            ###   ########.fr        #
+#    Updated: 2017/07/09 19:34:43 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS	=	main.c\
 OBJ =		${SRCS:.c=.o}
 
 INCLUDE	=	-I fdf.h -L ./libft -lft -L ./minilibx_macos -lmlx\
-			-framework OpenGL -framework AppKit
+			-framework OpenGL -framework AppKit\
 
 all: $(NAME)
 
