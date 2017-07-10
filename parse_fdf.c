@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/05 15:10:49 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/10 16:39:27 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,27 +90,19 @@ static int		count_chr_str(char *str, int n, char stop)
 
 static int		parse_file(char **av, t_fdfstore *store)
 {
-//	int			row;
-//	int			col;
 	int			fd;
 	char		*buff;
 
-//	row = 0;
-//	col = 0;
 	fd = open(av[1], O_RDONLY);
 	while (get_next_line(fd, &buff) == 1)
 	{
-		if (store->col == 0)
-			store->col = count_num_str(buff, '\n', '\0');
-		else
+		store->col = count_num_str(buff, '\n', '\0');
+		if (store->col != count_num_str(buff, '\n', '\0'))
 		{
-			if (store->col != count_num_str(buff, '\n', '\0'))
-			{
-				close(fd);
-				free(buff);
-				ft_putstr("Invalid file contents\n");
-				return (0);
-			}
+			close(fd);
+			free(buff);
+			ft_putstr("Invalid file contents\n");
+			return (0);
 		}
 		free(buff);
 		store->row = store->row + 1;
