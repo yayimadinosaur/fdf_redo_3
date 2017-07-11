@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 19:44:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/09 19:17:27 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/10 17:51:37 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_env	*set_window(int n, t_fdfstore *store)
 	e->start_y = n / 10;
 	e->end_x = n - (n / 10); //10% end 
 	e->end_y = n - (n / 10);
-	e->h_gap = (n - (e->start_x * 2)) / (store->row - 1);
-	e->w_gap = (n - (e->start_y * 2)) / (store->col - 1);
+	e->h_gap = (n - (e->start_x * 2) - 1) / (store->row - 1);
+	e->w_gap = (n - (e->start_y * 2) - 1) / (store->col - 1);
 //	e->mlx = mlx_init();
 //	e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
 	return (e);

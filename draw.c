@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 11:25:28 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/09 19:46:26 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/10 18:24:30 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ static void	draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		j = 0;
 		while (j < store->col) //&& sum_y < e->end_y)
 		{
-			gap = e->w_gap;
-			while (gap > -1)
-			{
-				sum_x = e->start_x + (e->h_gap * i);
-				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_x + gap >= e->end_x - 1)
-					break;
+			gap = 0;
+			sum_x = e->start_x + (e->h_gap * i);
+			sum_y = e->start_y + (e->w_gap * j);
+			printf("right s_x = %i s_y = %i w_gap = %i", sum_x, sum_y, e->w_gap);
+			while (gap < e->w_gap + 1 && sum_x + gap <= e->end_x)
+			{	
 				mlx_pixel_put(mlx, win, sum_x + gap, sum_y, 0xff00);	//green
-			//	printf("gap[%i]sum_x[%i]", gap, sum_x);
-				gap--;
+				printf("g[%i] g_x%i", gap, sum_x+gap);
+				gap++;
 			}
+			printf("\ni = %i j = %i\n", i, j);
 			j++;
 		}
-		printf("right sum_x %i sum_y %i\n", sum_x, sum_y);
+//		printf("right sum_x %i sum_y %i\n", sum_x, sum_y);
 		i++;
 	}
 }
@@ -65,21 +65,20 @@ static void	draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		j = 0;
 		while (j < store->col) //&& sum_y < e->end_y)
 		{
-			gap = e->h_gap;
-			while (gap > -1)
-			{
-				sum_x = e->start_x + (e->h_gap * i);
-				sum_y = e->start_y + (e->w_gap * j);
-				if (sum_y + gap >= e->end_y - 1)
-					break;
+			gap = 0;
+			sum_x = e->start_x + (e->h_gap * i);
+			sum_y = e->start_y + (e->w_gap * j);
+			printf("down s_x = %i s_y = %i h_gap = %i", sum_x, sum_y, e->h_gap);
+			while (gap < e->h_gap + 1 && sum_y + gap <= e->end_y)
+			{	
 				mlx_pixel_put(mlx, win, sum_x, sum_y + gap, 0xff0000);	//red
-			//	printf("gap[%i]sum_x[%i]", gap, sum_x);
-				gap--;
+				printf("g[%i] g_y%i", gap, sum_y+gap);
+				gap++;
 			}
-		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
+			printf("\ni = %i j = %i\n", i, j);
 			j++;
 		}
-		printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
+	//	printf("down sum_x %i sum_y %i\n", sum_x, sum_y);
 		i++;
 	}
 }
