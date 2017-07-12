@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 15:13:44 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/07 19:14:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/11 18:39:18 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static t_fdfstore	*strsplit_store(char **av, t_fdfstore *store)
 
 	fd = open(av[1], O_RDONLY);
 	i = 0;
+	printf("hi\n");
 	while (get_next_line(fd, &line) == 1)
 	{
 	//	printf("line[%i] = [%s]\n", i, line);
@@ -34,10 +35,12 @@ static t_fdfstore	*strsplit_store(char **av, t_fdfstore *store)
 			store->array_int[i][j] = ft_atoi(buff[j]);
 		//	printf("buff[%i] = [%s] store->array_int[%i][%i] = [%i]\n", j, buff[j], i, j, store->array_int[i][j]);
 		//	printf("j check = %i\n", j);
+		//	printf("[%3i]", store->array_int[i][j]);		//d
 			free(buff[j]);
 			buff[j] = NULL;
 			j++;
 		}
+	//	printf("\n");	//d
 		free(buff);
 		buff = NULL;
 		free(line);

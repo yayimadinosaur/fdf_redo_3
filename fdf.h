@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/09 19:34:52 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/11 18:38:23 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ typedef	struct			s_fdfstore
 //values for the 3 pts; not sure if needed?
 typedef struct			s_pts
 {
-	int					x;
-	int					y;
-	int					z;
-}						t_pts;
+	float					x;
+	float					y;
+	float					z;
+}						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env
 {
@@ -62,6 +62,8 @@ typedef struct			s_env
 	int					end_y;
 	int					h_gap;
 	int					w_gap;
+	int					gap1;
+	t_pts				**pts;
 }						t_env;
 
 int			parse_fdf(char *str, char **av, t_fdfstore *store);
