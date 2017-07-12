@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/11 18:38:23 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/11 20:04:57 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct			s_pts
 	float					x;
 	float					y;
 	float					z;
+	float					x_cor;
+	float					y_cor;
 }						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env
