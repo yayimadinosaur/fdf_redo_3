@@ -6,13 +6,13 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:12:21 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/21 19:37:18 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/21 19:47:23 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		draw_line(void *mlx, void *win, t_env *e, t_fdfstore *store)
+void		draw_line(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 {
 	int		i;
 	int		j;
@@ -36,7 +36,7 @@ void		draw_line(void *mlx, void *win, t_env *e, t_fdfstore *store)
 	}
 }
 
-void		draw_line1(void *mlx, void *win, t_env *e, t_fdfstore *store)
+void		draw_line1(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 {
 	int		i;
 	int		j;
@@ -49,7 +49,7 @@ void		draw_line1(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		while (j < store->col)
 		{
 			gap = 0;
-			while (gap <= e->gap1 && e->pts[i][j].y_stop + gap <= e->max_y)
+			while (gap <= e->gap1 && e->pts[i][j].y_stop + gap <= e->max_y + 1)
 			{
 				mlx_pixel_put(mlx, win, e->pts[i][j].x_stop, e->pts[i][j].y_stop + gap, 0xff0000);	//red
 				gap++;
