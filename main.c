@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/21 18:44:33 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/22 15:51:23 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,9 @@ int		main(int ac, char **av)
 					//free stored_pts
 				else
 					draw_fdf();	//initialize mlx + loop
+
+		rotate pts
+		translation of pts
+		free everything?
+		exit key code
 	*/
