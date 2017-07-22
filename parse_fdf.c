@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/10 16:39:27 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/22 16:05:40 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ static int		parse_contents(char **av)
 	int		fd;
 	char	*line;
 
-	i = 0;
+	int		chk_line = 0;	//
+
 	fd = open(av[1], O_RDONLY);
 	while (get_next_line(fd, &line) == 1)
 	{
+		i = 0;
 		while (line[i] != '\0')
 		{
 			if ((line[i] >= '0' && line[i] <= '9') || (line[i] == '-'
@@ -34,12 +36,14 @@ static int		parse_contents(char **av)
 				i++;
 			else
 			{
+				printf("parse_contents line #%i char#%i fails\n", chk_line, i);	//
 				free(line);
 				close(fd);
 				return (0);
 			}
 		}
 		free(line);
+		chk_line++;	//
 	}
 	close(fd);
 	return (1);
@@ -124,10 +128,16 @@ static int		parse_filename(char *str)
 
 	i = ft_strlen(str) - 1;
 	if (i < 4)
+	{
+		printf("file name too short\n");//
 		return (0);
+	}
 	if (str[i] != 'f' && str[i - 1] != 'd' && str[i - 2] != 'f'
 			&& str[i - 3] != '.')
+	{
+		printf("file extension not correct\n");
 		return (0);
+	}
 	return (1);
 }
 
