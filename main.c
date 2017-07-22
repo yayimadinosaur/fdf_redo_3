@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/10 18:12:33 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/21 18:44:33 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		main(int ac, char **av)
 {
 	t_fdfstore	*store;
 	t_env		*e;
-
 	store = NULL;
 	if (ac == 1)
 		ft_putstr("Please include a .fdf file\n");
@@ -30,13 +29,13 @@ int		main(int ac, char **av)
 			if (save_values(av, store) != 1)
 				ft_putstr("save_values malloc failed\n");
 			print_array_int(store->array_int, store);	//testing array_int
-			if (!(e = set_window(600, store)))
+			if (!(e = set_window1(600, store)))
 				return (-1);	//notsure if proper return 
 			e->mlx = mlx_init();
 			e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
-			printf("win_x %i win_y %i cent_x %i cent_y %i start_x %i start_y %i end_x %i end_y %i h_gap %i w_gap %i\n", e->win_x, e->win_y, e->center_x, e->center_y, e->start_x, e->start_y, e->end_x, e->end_y, e->h_gap, e->w_gap);
+			printf("win_x %i win_y %i cent_x %i cent_y %i start_x %i start_y %i end_x %f end_y %f h_gap %f w_gap %f gap1 %f\n", e->win_x, e->win_y, e->center_x, e->center_y, e->start_x, e->start_y, e->end_x, e->end_y, e->h_gap, e->w_gap, e->gap1);
 			printf("mlx looping\n");
-			draw(e->mlx, e->win, e, store);
+			draw2(e->mlx, e->win, e, store);
 			mlx_loop(e->mlx);
 		}
 		else

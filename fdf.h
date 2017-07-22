@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/11 20:04:57 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/21 19:35:07 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+
+#define WHT 0xfffafa
+#define	RED 0xff0000
+#define GRN 0xff00
+
 
 #include <stdio.h>	//
 
@@ -46,8 +51,8 @@ typedef struct			s_pts
 	float					x;
 	float					y;
 	float					z;
-	float					x_cor;
-	float					y_cor;
+	float					x_stop;
+	float					y_stop;
 }						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env
@@ -60,11 +65,13 @@ typedef struct			s_env
 	int					center_y;
 	int					start_x;
 	int					start_y;
-	int					end_x;
-	int					end_y;
-	int					h_gap;
-	int					w_gap;
-	int					gap1;
+	float				end_x;
+	float				end_y;
+	float				h_gap;
+	float				w_gap;
+	float				gap1;
+	float				max_x;
+	float				max_y;
 	t_pts				**pts;
 }						t_env;
 
@@ -75,9 +82,12 @@ t_fdfstore	*create_struct(char **av);	//old
 int			save_values(char **av, t_fdfstore *store);
 void		array_int(char **result_str, int n, int *array);
 
-t_env		*set_window(int n, t_fdfstore *store);
+t_env		*set_window(int n, t_fdfstore *store);	//old, testing 1
 
+t_env		*set_window1(int n, t_fdfstore *store);
 void		draw(void *mlx, void *win, t_env *e, t_fdfstore *store);
+void		draw1(void *mlx, void *win, t_env *e, t_fdfstore *store);
+void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store);
 //ttest functions
 void		print_array_int(int **array_int, t_fdfstore *store);
 
