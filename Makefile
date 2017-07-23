@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 16:45:07 by wfung             #+#    #+#              #
-#    Updated: 2017/07/21 18:43:25 by wfung            ###   ########.fr        #
+#    Updated: 2017/07/22 16:38:50 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS	=	main.c\
 			save_values.c\
 			set_window1.c\
 			draw2.c\
+			rotate.c\
+			translate.c\
 
 OBJ =		${SRCS:.c=.o}
 

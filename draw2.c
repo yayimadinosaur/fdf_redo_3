@@ -6,13 +6,13 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:12:21 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/21 19:47:23 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/22 18:57:35 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		draw_line(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
+void		draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 {
 	int		i;
 	int		j;
@@ -34,9 +34,10 @@ void		draw_line(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 		}
 		i++;
 	}
+	printf("draw right chk %f\n", e->max_x);
 }
 
-void		draw_line1(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
+void		draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 {
 	int		i;
 	int		j;
@@ -62,9 +63,7 @@ void		draw_line1(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 }
 void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {
-	draw_line(mlx, win, e, store);	//draw a straight line
-	draw_line1(mlx, win, e, store);
-//	draw_rightstraight(mlx, win, e, store);	//doesnt draw a straight line
-//	draw_down(mlx, win, e, store);	//over draws
+	draw_right(mlx, win, e, store);
+	draw_down(mlx, win, e, store);
 }
 

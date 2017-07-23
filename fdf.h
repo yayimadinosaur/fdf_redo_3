@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/21 19:35:07 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/22 16:47:20 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef struct			s_env
 	void				*win;
 	int					win_x;
 	int					win_y;
-	int					center_x;
-	int					center_y;
+	float				center_x;
+	float				center_y;
 	int					start_x;
 	int					start_y;
 	float				end_x;
@@ -88,6 +88,9 @@ t_env		*set_window1(int n, t_fdfstore *store);
 void		draw(void *mlx, void *win, t_env *e, t_fdfstore *store);
 void		draw1(void *mlx, void *win, t_env *e, t_fdfstore *store);
 void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store);
+
+void		rotate(t_fdfstore *store, t_env *e);
+void		translate(t_fdfstore *store, t_env *e);
 //ttest functions
 void		print_array_int(int **array_int, t_fdfstore *store);
 
